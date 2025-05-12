@@ -1,36 +1,92 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+# This workflow will build and test your Node.js project,
+# publish a package to GitHub Packages when a release is created,
+# and deploy the website from the 'dist' folder to GitHub Pages.
 
-name: Node.js Package
+name: Node.js CI, Package Publish & Website Deploy
 
 on:
   release:
-    types: [created]
+    types: [created] # Triggers on new release creation
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
-      - run: npm test
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build website # Add this step
+        run: npm run build # Assumes 'npm run build' creates the 'dist' folder. Change if your build command is different.
+
+      - name: Upload dist artifact for website deployment # Add this step
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-dist
+          path: dist/ # Or the specific path to your built website assets
 
   publish-gpr:
-    needs: build
+    needs: build # Depends on the build job completing successfully
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      packages: write # Permission to write to GitHub Packages
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
+          registry-url: https://npm.pkg.github.com/ # Configures npm for GitHub Packages
+
+      - name: Install dependencies
+        run: npm ci # Important to install dependencies if your package has them
+
+      - name: Publish to GitHub Packages
+        run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # Note: This job publishes your Node.js package as defined in package.json from the root of your repository.
+    # If your 'dist' folder is meant to be the package itself, you'd need to adjust the 'run: npm publish' step (e.g., cd dist && npm publish).
+    # However, 'dist' for websites usually contains static assets, not a publishable npm package.
+
+  deploy-to-github-pages: # New job for deploying the website
+    needs: build # Depends on the build job completing successfully
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read # Needed to checkout the repo / download artifacts
+      pages: write    # Needed to deploy to GitHub Pages
+      id-token: write # Needed for authentication with GitHub Pages
+    environment: # Optional: configure environment for GitHub Pages
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download website artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: website-dist
+          path: ./dist # Download to a local 'dist' folder in the runner
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3 # This action prepares the artifact for deployment
+        with:
+          path: './dist' # Path to the directory to deploy
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # This action deploys the artifact uploaded by upload-pages-artifact
