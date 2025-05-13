@@ -33,5 +33,8 @@
     "typescript-eslint": "^8.3.0",
     "vite": "^6.3.5"
   },
-  "homepage": "https://nkosimano.github.io/MyProfile/"
+  "homepage": "https://nkosimano.github.io/MyProfile/",
+  "engines": {
+    "node": "22.x"
+  }
 }
