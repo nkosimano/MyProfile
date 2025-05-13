@@ -1,6 +1,6 @@
-import React from 'react';
+
 import AnimatedElement from '../components/AnimatedElement';
-import { ExternalLink, Github, Globe, Star, Quote } from 'lucide-react';
+import { Github, Globe, Star, Quote } from 'lucide-react';
 
 interface Project {
   title: string;

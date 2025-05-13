@@ -1,29 +1,9 @@
-import React from 'react';
+
 import AnimatedElement from '../components/AnimatedElement';
-import { Award, BookOpen, Briefcase, Code, Star, Cloud, Database, GitBranch, Quote } from 'lucide-react';
+import { Code, Cloud, Database, GitBranch, Download, Mail, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
-  const milestones = [
-    {
-      year: '2024',
-      title: 'DevOps Engineer at Africa Tennis',
-      description: 'Leading enterprise-wide DevOps initiatives and implementing CI/CD pipelines, reducing deployment time by 93%.',
-      icon: <Briefcase className="w-6 h-6" />
-    },
-    {
-      year: '2024',
-      title: 'Azure Solutions Architect Expert',
-      description: 'Achieved Azure Solutions Architect Expert (AZ-305) certification.',
-      icon: <Award className="w-6 h-6" />
-    },
-    {
-      year: '2019',
-      title: 'IT Project Leadership at Cotton On',
-      description: 'Led major infrastructure migrations, including 105-store network modernization project.',
-      icon: <BookOpen className="w-6 h-6" />
-    }
-  ];
-
   const expertise = [
     {
       title: 'Cloud Architecture',
@@ -47,38 +27,6 @@ const About = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      name: "Michael R.",
-      role: "CTO, FinTech Startup",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80",
-      quote: "Immanuel transformed our deployment pipeline, reducing our deployment time from hours to minutes. His expertise in Azure and DevOps practices was invaluable.",
-      rating: 5,
-      achievement: "Reduced deployment time by 85%"
-    },
-    {
-      name: "Sarah J.",
-      role: "Head of Engineering, E-commerce Platform",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80",
-      quote: "The infrastructure automation solutions implemented by Immanuel helped us scale our operations efficiently. Our cloud costs decreased by 40% while performance improved.",
-      rating: 5,
-      achievement: "40% reduction in cloud costs"
-    },
-    {
-      name: "David L.",
-      role: "DevOps Manager, Healthcare Tech",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80",
-      quote: "His implementation of Kubernetes and microservices architecture revolutionized our deployment strategy. The monitoring solutions he put in place have been crucial for our operations.",
-      rating: 5,
-      achievement: "99.99% system uptime achieved"
-    }
-  ];
-
-  const renderStars = (rating: number) => {
-    return Array(rating).fill(0).map((_, index) => (
-      <Star key={index} className="w-5 h-5 fill-orange-400 text-orange-400" />
-    ));
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 py-20 px-4">
@@ -100,7 +48,7 @@ const About = () => {
         <AnimatedElement delay={200} className="mt-20">
           <h2 className="text-3xl font-bold text-white text-center mb-12">Areas of Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {expertise.map((area, index) => (
+            {expertise.map((area) => (
               <div key={area.title} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-orange-500/10 mb-4 mx-auto">
                   {area.icon}
@@ -112,72 +60,98 @@ const About = () => {
           </div>
         </AnimatedElement>
 
-        {/* Professional Journey Timeline */}
-        <div className="relative max-w-4xl mx-auto mt-20">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">Professional Journey</h2>
-          <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-orange-500/30"></div>
-          {milestones.map((milestone, index) => (
-            <AnimatedElement
-              key={milestone.year}
-              delay={index * 200}
-              className="relative mb-12"
-            >
-              <div className={`flex items-center ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pl-8' : 'pr-8'} text-right`}>
-                  <div className={`bg-white/5 backdrop-blur-sm rounded-xl p-6 ${index % 2 === 0 ? 'ml-auto' : 'mr-auto'}`}>
-                    <span className="text-orange-400 font-bold">{milestone.year}</span>
-                    <h3 className="text-xl font-semibold text-white mt-2">{milestone.title}</h3>
-                    <p className="text-gray-300 mt-2">{milestone.description}</p>
-                  </div>
-                </div>
-                <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-orange-500 border-4 border-slate-900">
-                  {milestone.icon}
-                </div>
-                <div className="w-1/2"></div>
-              </div>
-            </AnimatedElement>
-          ))}
-        </div>
-      </section>
+        {/* My DevOps/Freelancing Approach */}
+        <AnimatedElement delay={300} className="mt-20">
+          <h2 className="text-3xl font-bold text-white text-center mb-12">My DevOps/Freelancing Approach</h2>
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8">
+            <p className="text-gray-300 text-lg leading-relaxed mb-8">
+              Results-driven DevOps Engineer with 10 years of comprehensive IT expertise, specializing in architecting, automating, and optimizing scalable infrastructures across diverse cloud platforms such as AWS, Azure, GCP, and Digital Ocean. Skilled in developing efficient CI/CD pipelines using GitHub Actions and Azure DevOps, and proficient in containerization with Docker and Kubernetes to accelerate deployment cycles and enhance system reliability. Adept at bridging development and operations, with a strong background in business logic design, database optimization, and end-user web application planning. Experienced in leading large-scale IT projects, including network and infrastructure migrations, and service desk analysis, providing a solid foundation in end-to-end IT operations and user-centric solutions.
+            </p>
 
-      {/* Skills & Expertise */}
-      <section className="max-w-7xl mx-auto">
-        <AnimatedElement className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-white mb-4">Technical Proficiencies</h2>
-          <p className="text-gray-300">Continuously expanding knowledge in emerging technologies</p>
+            <div className="mt-8">
+              <h3 className="text-2xl font-semibold text-white mb-6">The Hiking Mindset</h3>
+              
+              <div className="flex flex-col md:flex-row gap-8 mb-2 items-start">
+                <div className="w-full md:w-1/3 flex items-start">
+                  <img
+                    src="/profile-hiking.jpg"
+                    alt="Hiking Mindset"
+                    className="w-full h-64 object-cover rounded-xl mt-0"
+                  />
+                </div>
+                <div className="w-full md:w-2/3">
+                  <p className="text-gray-300 mb-6">
+                    Drawing parallels between hiking and DevOps practices helps illustrate my methodical 
+                    approach to technical challenges and project management. Each trait represents a key 
+                    aspect of how I navigate complex technical landscapes.
+                  </p>
+                </div>
+              </div>
+
+              <ul className="space-y-6 text-gray-300">
+                <li className="flex items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mr-4">
+                    <Code className="w-6 h-6 text-orange-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-2">Strategic Planning</h4>
+                    <p>Just as a hiker meticulously plans their route, assessing terrain and resources, I approach projects by carefully architecting solutions and defining strategic roadmaps to ensure efficient and predictable delivery.</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mr-4">
+                    <GitBranch className="w-6 h-6 text-orange-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-2">Resilient Navigation</h4>
+                    <p>Unexpected challenges are part of any journey. My mindset involves building resilient systems and applying methodical problem-solving skills to navigate obstacles effectively and maintain operational stability.</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mr-4">
+                    <Cloud className="w-6 h-6 text-orange-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-2">Adaptive Progression</h4>
+                    <p>Successful journeys require adapting to changing conditions. I embrace new technologies and methodologies, continuously optimizing processes and adjusting strategies to achieve peak performance and reach project goals.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </AnimatedElement>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatedElement className="bg-white/5 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-xl font-semibold text-white mb-4">Cloud Architecture</h3>
-            <ul className="space-y-2 text-gray-300">
-              <li>AWS (Lambda, EC2, S3, VPC)</li>
-              <li>Azure (DevOps, VMs, Blob Storage)</li>
-              <li>Google Cloud Platform</li>
-              <li>Digital Ocean</li>
-            </ul>
-          </AnimatedElement>
-
-          <AnimatedElement delay={200} className="bg-white/5 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-xl font-semibold text-white mb-4">DevOps Practices</h3>
-            <ul className="space-y-2 text-gray-300">
-              <li>Docker & Kubernetes</li>
-              <li>GitHub Actions & Azure DevOps</li>
-              <li>Terraform & Ansible</li>
-              <li>CI/CD Pipeline Development</li>
-            </ul>
-          </AnimatedElement>
-
-          <AnimatedElement delay={400} className="bg-white/5 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-xl font-semibold text-white mb-4">Database Management</h3>
-            <ul className="space-y-2 text-gray-300">
-              <li>PostgreSQL & MySQL</li>
-              <li>Database Schema Design</li>
-              <li>Performance Tuning</li>
-              <li>Security Implementation</li>
-            </ul>
-          </AnimatedElement>
-        </div>
+        {/* Explore Further */}
+        <AnimatedElement delay={400} className="mt-20">
+          <h2 className="text-3xl font-bold text-white text-center mb-6">Explore Further</h2>
+          <p className="text-gray-300 text-center mb-8">
+            Discover more about my work, experience, and how we can collaborate on your next project.
+          </p>
+          <div className="flex justify-center space-x-8 flex-wrap gap-4">
+            <a 
+              href="/assets/disc-assessment.pdf" 
+              className="flex items-center gap-2 text-orange-400 hover:text-orange-300 font-semibold"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FileText className="w-5 h-5" />
+              D.I.S.C.
+            </a>
+            <a 
+              href="/files/Immanuel_Dhliso_DevOps_Resume.pdf" 
+              className="flex items-center gap-2 text-orange-400 hover:text-orange-300 font-semibold"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Download className="w-5 h-5" />
+              Download Resume
+            </a>
+            <Link to="/contact" className="flex items-center gap-2 text-orange-400 hover:text-orange-300 font-semibold">
+              <Mail className="w-5 h-5" />
+              Contact Me
+            </Link>
+          </div>
+        </AnimatedElement>
       </section>
     </div>
   );

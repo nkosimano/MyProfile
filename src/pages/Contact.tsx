@@ -23,10 +23,10 @@ const Contact = () => {
                 <div>
                   <h3 className="text-xl font-semibold text-white">Email</h3>
                   <a
-                    href="mailto:immanuel.dhliso@example.com"
+                    href="mailto:nkosinathi.dhliso@gmail.com"
                     className="text-gray-300 hover:text-orange-400 transition-colors"
                   >
-                    immanuel.dhliso@example.com
+                    nkosinathi.dhliso@gmail.com
                   </a>
                 </div>
               </div>
@@ -46,7 +46,7 @@ const Contact = () => {
                     href="tel:+27123456789"
                     className="text-gray-300 hover:text-orange-400 transition-colors"
                   >
-                    +27 12 345 6789
+                    +27 61 450 9800
                   </a>
                 </div>
               </div>
@@ -62,11 +62,11 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-white">Location</h3>
-                  <p className="text-gray-300">Johannesburg, South Africa</p>
+                  <p className="text-gray-300">Midrand, South Africa</p>
                 </div>
               </div>
               <p className="text-gray-400">
-                Based in Johannesburg, available for remote collaboration worldwide.
+                Based in Midrand, available for remote collaboration worldwide.
               </p>
             </div>
 
@@ -78,7 +78,7 @@ const Contact = () => {
                 <div>
                   <h3 className="text-xl font-semibold text-white">LinkedIn</h3>
                   <a
-                    href="https://linkedin.com/in/immanuel-dhliso"
+                    href="https://www.linkedin.com/in/immanueldhliso"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-orange-400 transition-colors"
@@ -95,13 +95,13 @@ const Contact = () => {
 
           <AnimatedElement delay={200} className="mt-12 text-center">
             <a
-              href="https://github.com/immanuel-dhliso"
+              href="https://github.com/nkosimano"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg text-white font-semibold hover:from-orange-600 hover:to-yellow-600 transition-all duration-300"
             >
               <Github className="w-5 h-5" />
-              View My GitHub Projects
+              Visit My GitHub
             </a>
           </AnimatedElement>
         </div>

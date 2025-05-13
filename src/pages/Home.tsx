@@ -1,4 +1,3 @@
-import React from 'react';
 import AnimatedElement from '../components/AnimatedElement';
 import {
   Code,
@@ -75,11 +74,11 @@ const Home = () => {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
               <AnimatedElement className="relative">
-                <div className="relative w-80 h-80 mx-auto">
+                <div className="relative w-96 h-96 mx-auto">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-yellow-300 rounded-full animate-pulse"></div>
                   <div className="absolute inset-2 rounded-full overflow-hidden">
                     <img
-                      src="./src/profile.jpg"
+                      src="/profile.jpg"
                       alt="Immanuel N. Dhliso"
                       className="w-full h-full object-cover"
                       style={{
@@ -97,7 +96,7 @@ const Home = () => {
                   Immanuel N. Dhliso
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-300">
-                  DevOps Engineer
+                  Elite DevOps Engineer
                 </p>
                 <p className="text-gray-400">
                   A results-driven DevOps Engineer with 10 years of comprehensive IT experience, specializing in architecting, automating, and optimizing robust and scalable infrastructures across diverse cloud environments.
