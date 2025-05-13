@@ -33,7 +33,7 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0"
   },
-  "homepage": "https://nkosimano.github.io/MyProfile/",
+
   "engines": {
     "node": "22.x"
   }
