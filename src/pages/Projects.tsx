@@ -71,7 +71,7 @@ const projects: Project[] = [
       'Enhanced brand visibility'
     ],
     links: {
-      live: 'https://rtdynamicbc.com'
+      live: 'https://rtdynamicbc.co.za'
     }
   }
 ];
