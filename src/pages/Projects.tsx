@@ -47,7 +47,7 @@ const projects: Project[] = [
   },
   {
     title: 'Adv. Motsusi Professional Website',
-    description: "Developed a professional website for Adv. Malebogo Dhliso, a legal consultant. The site enhances online presence and client accessibility, featuring a clean design, user-friendly experience, and SEO optimization, aligning with Adv. Dhliso's testimonial.",
+    description: "Developed a professional website for Adv. Malebogo, a legal consultant. The site enhances online presence and client accessibility, featuring a clean design, user-friendly experience, and SEO optimization, aligning with Adv. Malebogo's testimonial.",
     // Updated image: Professional consultation in a modern office
     image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=2000',
     technologies: ['React', 'Tailwind CSS', 'Vite', 'SEO'],
@@ -78,38 +78,39 @@ const projects: Project[] = [
 
 // Array of testimonial data
 const testimonials = [
-  {
-    name: "Rabelani Neluheni",
-    role: "Charted Accountant",
-    image: "/assets/rabelani.png", // Local asset path
-    quote: "Immanuel's strategic approach to cloud cost optimization and financial system integration was invaluable. His solutions significantly improved our reporting accuracy and efficiency.",
-    rating: 5,
-    achievement: "Implemented a new cloud-based accounting system, reducing month-end closing time by 40%"
-  },
+  
   {
     name: "Keamogetsi Motsusi",
     role: "Digital Content creator & Events Manager",
-    image: "/assets/keamogetsi.png", // Local asset path
+    image: "/assets/keamogetsi.png", 
     quote: "Immanuel's ability to translate complex technical requirements into seamless user experiences for our event platforms was outstanding. His DevOps magic kept our digital campaigns running smoothly.",
     rating: 5,
     achievement: "Successfully launched three major virtual events with flawless technical execution, boosting audience engagement by 150%"
   },
   {
-    name: "Jerome Strevens",
-    role: "Tennis Fanatic",
-    image: "/assets/jerome.png", // Local asset path
-    quote: "As a user of the Africa Tennis Platform, I'm amazed by its performance and reliability. Immanuel's work on the backend infrastructure ensures a fantastic experience for tennis enthusiasts like me.",
-    rating: 5,
-    achievement: "Contributed to a platform that now serves thousands of tennis players and fans daily with high availability and speed"
-  },
-  {
-    name: "Adv. Malebogo Dhliso",
+    name: "Adv. Malebogo",
     role: "Advocate & Legal Consultant",
-    image: "/assets/malebogo.png", // Local asset path
+    image: "/assets/malebogo.png", 
     quote: "Immanuel's expertise in setting up efficient file management systems for my legal cases and building a professional website with SEO optimization has been a game-changer for my practice. Highly recommended!",
     rating: 5,
     achievement: "Streamlined case file management, launched a professional legal website, and significantly improved online visibility through SEO."
-  }
+  },
+  {
+    name: "Rabelani Neluheni",
+    role: "Charted Accountant",
+    image: "/assets/rabelani.png", 
+    quote: "Immanuel's strategic approach to cloud cost optimization and financial system integration was invaluable. His solutions significantly improved our reporting accuracy and efficiency.",
+    rating: 5,
+    achievement: "Implemented a new cloud-based accounting system, reducing month-end closing time by 40%"
+  },
+  {
+  name: "Jerome Strevens",
+  role: "Tennis Fanatic",
+  image: "/assets/jerome.png", 
+  quote: "As a user of the Africa Tennis Platform, I'm amazed by its performance and reliability. Immanuel's work on the backend infrastructure ensures a fantastic experience for tennis enthusiasts like me.",
+  rating: 5,
+  achievement: "Contributed to a platform that now serves thousands of tennis players and fans daily with high availability and speed"
+}
 ];
 
 // Main Projects component
