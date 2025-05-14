@@ -56,33 +56,55 @@ const projects: Project[] = [
     links: {
       live: 'https://chartedart.com'
     }
+  },
+  {
+    title: 'Adv. Motsusi Professional Website',
+    description: "Developed a professional website for Adv. Malebogo Dhliso, a legal consultant. The site enhances online presence and client accessibility, featuring a clean design, user-friendly experience, and SEO optimization, aligning with Adv. Dhliso's testimonial.",
+    image: 'https://images.unsplash.com/photo-1589994216909-59ac2738a9e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+    technologies: ['React', 'Tailwind CSS', 'Vite', 'SEO'],
+    outcomes: [
+      'Established a strong professional online identity for Adv. Motsusi.',
+      'Improved accessibility for potential clients seeking legal services.',
+      'Enhanced search engine visibility through targeted SEO strategies.'
+    ],
+    links: {
+      live: 'https://www.advmotsusi.co.za'
+    }
   }
 ];
 
 const testimonials = [
   {
-    name: "Michael R.",
-    role: "CTO, FinTech Startup",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80",
-    quote: "Immanuel transformed our deployment pipeline, reducing our deployment time from hours to minutes. His expertise in Azure and DevOps practices was invaluable.",
+    name: "Rabelani Neluheni",
+    role: "Charted Accountant",
+    image: "/assets/rabelani.png",
+    quote: "Immanuel's strategic approach to cloud cost optimization and financial system integration was invaluable. His solutions significantly improved our reporting accuracy and efficiency.",
     rating: 5,
-    achievement: "Reduced deployment time by 85%"
+    achievement: "Implemented a new cloud-based accounting system, reducing month-end closing time by 40%"
   },
   {
-    name: "Sarah J.",
-    role: "Head of Engineering, E-commerce Platform",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80",
-    quote: "The infrastructure automation solutions implemented by Immanuel helped us scale our operations efficiently. Our cloud costs decreased by 40% while performance improved.",
+    name: "Keamogetsi Motsusi",
+    role: "Digital Content creator & Events Manager",
+    image: "/assets/keamogetsi.png",
+    quote: "Immanuel's ability to translate complex technical requirements into seamless user experiences for our event platforms was outstanding. His DevOps magic kept our digital campaigns running smoothly.",
     rating: 5,
-    achievement: "40% reduction in cloud costs"
+    achievement: "Successfully launched three major virtual events with flawless technical execution, boosting audience engagement by 150%"
   },
   {
-    name: "David L.",
-    role: "DevOps Manager, Healthcare Tech",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80",
-    quote: "His implementation of Kubernetes and microservices architecture revolutionized our deployment strategy. The monitoring solutions he put in place have been crucial for our operations.",
+    name: "Jerome Strevens",
+    role: "Tennis Fanatic",
+    image: "/assets/jerome.png",
+    quote: "As a user of the Africa Tennis Platform, I'm amazed by its performance and reliability. Immanuel's work on the backend infrastructure ensures a fantastic experience for tennis enthusiasts like me.",
     rating: 5,
-    achievement: "99.99% system uptime achieved"
+    achievement: "Contributed to a platform that now serves thousands of tennis players and fans daily with high availability and speed"
+  },
+  {
+    name: "Adv. Malebogo Dhliso",
+    role: "Advocate & Legal Consultant",
+    image: "/assets/malebogo.png",
+    quote: "Immanuel's expertise in setting up efficient file management systems for my legal cases and building a professional website with SEO optimization has been a game-changer for my practice. Highly recommended!",
+    rating: 5,
+    achievement: "Streamlined case file management, launched a professional legal website, and significantly improved online visibility through SEO."
   }
 ];
 

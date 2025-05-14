@@ -14,6 +14,9 @@ const AnimatedElement: React.FC<AnimatedElementProps> = ({
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Capture the current ref value
+    const currentElement = elementRef.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -21,22 +24,26 @@ const AnimatedElement: React.FC<AnimatedElementProps> = ({
             setTimeout(() => {
               entry.target.classList.add('animate-in');
             }, delay);
+            // Optional: Unobserve after animating to prevent re-triggering
+            // if (currentElement) { // Check if currentElement is not null
+            //   observer.unobserve(currentElement);
+            // }
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
+    if (currentElement) { // Use the captured value
+      observer.observe(currentElement);
     }
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
+      if (currentElement) { // Use the captured value in the cleanup
+        observer.unobserve(currentElement);
       }
     };
-  }, [delay]);
+  }, [delay]); // elementRef is stable and doesn't need to be in dependencies
 
   return (
     <div
