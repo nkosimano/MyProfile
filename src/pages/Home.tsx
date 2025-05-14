@@ -207,7 +207,7 @@ const Home = () => {
           <div className="space-y-8">
             {experiences.map((exp, index) => (
               <AnimatedElement
-                key={exp.title}
+                key={exp.title + '-' + exp.company}
                 delay={index * 200}
                 className="relative pl-8 border-l-2 border-orange-500"
               >
