@@ -1,4 +1,5 @@
 import AnimatedElement from '../components/AnimatedElement';
+import { Link } from 'react-router-dom';
 import {
   Code,
   Cloud,
@@ -151,12 +152,12 @@ const Home = () => {
                     GitHub
                   </a>
                 </div>
-                <a
-                  href="/contact"
-                  className="inline-block px-8 py-3 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full text-white font-semibold hover:from-orange-600 hover:to-yellow-600 transition-all duration-300"
+                <Link
+                  to="/contact"
+                  className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full shadow-lg transition-colors duration-300 mt-8 text-lg"
                 >
                   Get in Touch
-                </a>
+                </Link>
               </AnimatedElement>
             </div>
           </div>
