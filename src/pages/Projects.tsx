@@ -20,7 +20,7 @@ const projects: Project[] = [
     title: 'Africa Tennis Platform',
     description: 'Spearheaded DevOps initiatives for a high-traffic sports platform, focusing on building a scalable, secure, and automated cloud infrastructure. Led comprehensive database architecture refinement and optimization, implementing advanced security measures and performance tuning.',
     image: 'https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2124&q=80', // Original image
-    technologies: ['AWS Lambda', 'Docker', 'Kubernetes', 'GitHub Actions', 'Azure DevOps', 'PostgreSQL'],
+    technologies: ['AWS Lambda', 'Docker', 'Kubernetes', 'GitHub Actions', 'PostgreSQL'],
     outcomes: [
       'Reduced deployment cycle time by 93%',
       'Achieved 99.95% system uptime',
@@ -35,7 +35,7 @@ const projects: Project[] = [
     description: 'Drove the DevOps strategy for an innovative art analytics platform, emphasizing rapid iteration cycles, robust infrastructure on Google Cloud Platform (GCP), and efficient data processing pipelines for complex analytics.',
     // Updated image: Dashboards and charts, fitting for analytics
     image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=2400',
-    technologies: ['GCP', 'Docker', 'Kubernetes', 'Terraform', 'API Gateway'],
+    technologies: ['GCP Compute Resources', 'Docker', 'Kubernetes', 'Terraform', 'Azure DevOps', 'API Gateway'],
     outcomes: [
       'Improved data processing speeds by 20%',
       'Achieved 99.9% service uptime',
