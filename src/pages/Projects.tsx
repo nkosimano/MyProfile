@@ -70,6 +70,34 @@ const projects: Project[] = [
     links: {
       live: 'https://www.advmotsusi.co.za'
     }
+  },
+  {
+    title: 'Adv. Motsusi Professional Website',
+    description: "Developed a professional website for Adv. Malebogo Dhliso, a legal consultant. The site enhances online presence and client accessibility, featuring a clean design, user-friendly experience, and SEO optimization, aligning with Adv. Dhliso's testimonial.",
+    image: 'https://images.unsplash.com/photo-1589994216909-59ac2738a9e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+    technologies: ['React', 'Tailwind CSS', 'Vite', 'SEO'],
+    outcomes: [
+      'Established a strong professional online identity for Adv. Motsusi.',
+      'Improved accessibility for potential clients seeking legal services.',
+      'Enhanced search engine visibility through targeted SEO strategies.'
+    ],
+    links: {
+      live: 'https://www.advmotsusi.co.za'
+    }
+  },
+  {
+    title: 'Adv. Motsusi Professional Website',
+    description: "Developed a professional website for Adv. Malebogo Dhliso, a legal consultant. The site enhances online presence and client accessibility, featuring a clean design, user-friendly experience, and SEO optimization, aligning with Adv. Dhliso's testimonial.",
+    image: 'https://images.unsplash.com/photo-1589994216909-59ac2738a9e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+    technologies: ['React', 'Tailwind CSS', 'Vite', 'SEO'],
+    outcomes: [
+      'Established a strong professional online identity for Adv. Motsusi.',
+      'Improved accessibility for potential clients seeking legal services.',
+      'Enhanced search engine visibility through targeted SEO strategies.'
+    ],
+    links: {
+      live: 'https://www.advmotsusi.co.za'
+    }
   }
 ];
 
@@ -136,10 +164,18 @@ const Projects = () => {
               <div className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
                   <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  />
+  src={project.image.replace(/w=\d+/, 'w=400')}
+  srcSet={`
+    ${project.image.replace(/w=\d+/, 'w=400')} 400w,
+    ${project.image.replace(/w=\d+/, 'w=800')} 800w
+  `}
+  sizes="(max-width: 768px) 400px, 800px"
+  alt={`Screenshot of ${project.title}`}
+  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+  loading="lazy"
+  width="800"
+  height="256"
+/>
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
                   <div className="absolute bottom-4 left-4">
                     <h3 className="text-2xl font-bold text-white">{project.title}</h3>
@@ -214,11 +250,26 @@ const Projects = () => {
                 className="bg-white/5 backdrop-blur-sm rounded-xl p-6 transform hover:scale-105 transition-all duration-300"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
+                  <picture>
+  <source
+    type="image/webp"
+    srcSet={`${testimonial.image.replace(/\.png$/, '-64.webp')} 64w, ${testimonial.image.replace(/\.png$/, '-128.webp')} 128w`}
+    sizes="(max-width: 768px) 64px, 128px"
+  />
+  <source
+    type="image/png"
+    srcSet={`${testimonial.image.replace(/\.png$/, '-64.png')} 64w, ${testimonial.image.replace(/\.png$/, '-128.png')} 128w`}
+    sizes="(max-width: 768px) 64px, 128px"
+  />
+  <img
+    src={testimonial.image.replace(/\.png$/, '-64.png')}
+    alt={`Testimonial from ${testimonial.name}, ${testimonial.role}`}
+    className="w-16 h-16 rounded-full object-cover"
+    loading="lazy"
+    width="64"
+    height="64"
+  />
+</picture>
                   <div>
                     <h3 className="text-xl font-semibold text-white">{testimonial.name}</h3>
                     <p className="text-orange-400">{testimonial.role}</p>

@@ -68,7 +68,19 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-20"></div>
+          <div
+  className="absolute inset-0 bg-center bg-cover opacity-20"
+  style={{
+    backgroundImage: `image-set(
+      url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=70') 1x,
+      url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1024&q=70') 1.5x,
+      url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=70') 2x,
+      url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2560&q=70') 3x
+    )`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover'
+  }}
+></div>
         </div>
         <div className="relative container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -77,14 +89,27 @@ const Home = () => {
                 <div className="relative w-96 h-96 mx-auto">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-yellow-300 rounded-full animate-pulse"></div>
                   <div className="absolute inset-2 rounded-full overflow-hidden">
-                    <img
-                      src="/profile.jpg"
-                      alt="Immanuel N. Dhliso"
-                      className="w-full h-full object-cover"
-                      style={{
-                        clipPath: 'circle(50% at center)'
-                      }}
-                    />
+                    <picture>
+  <source
+    type="image/webp"
+    srcSet="/profile-384.webp 384w, /profile-768.webp 768w"
+    sizes="(max-width: 768px) 384px, 768px"
+  />
+  <source
+    type="image/jpeg"
+    srcSet="/profile-384.jpg 384w, /profile-768.jpg 768w"
+    sizes="(max-width: 768px) 384px, 768px"
+  />
+  <img
+    src="/profile-384.jpg"
+    alt="Portrait of Immanuel N. Dhliso, DevOps Engineer"
+    className="w-full h-full object-cover"
+    style={{ clipPath: 'circle(50% at center)' }}
+    loading="lazy"
+    width="384"
+    height="384"
+  />
+</picture>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent to-purple-900/30 rounded-full"></div>
                 </div>

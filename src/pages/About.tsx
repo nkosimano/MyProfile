@@ -73,11 +73,26 @@ const About = () => {
               
               <div className="flex flex-col md:flex-row gap-8 mb-2 items-start">
                 <div className="w-full md:w-1/3 flex items-start">
-                  <img
-                    src="/profile-hiking.jpg"
-                    alt="Hiking Mindset"
-                    className="w-full h-64 object-cover rounded-xl mt-0"
-                  />
+                  <picture>
+  <source
+    type="image/webp"
+    srcSet="/profile-hiking-256.webp 256w, /profile-hiking-512.webp 512w"
+    sizes="(max-width: 768px) 256px, 512px"
+  />
+  <source
+    type="image/jpeg"
+    srcSet="/profile-hiking-256.jpg 256w, /profile-hiking-512.jpg 512w"
+    sizes="(max-width: 768px) 256px, 512px"
+  />
+  <img
+    src="/profile-hiking-256.jpg"
+    alt="Immanuel hiking in nature, symbolizing a strategic and resilient mindset"
+    className="w-full h-64 object-cover rounded-xl mt-0"
+    loading="lazy"
+    width="384"
+    height="256"
+  />
+</picture>
                 </div>
                 <div className="w-full md:w-2/3">
                   <p className="text-gray-300 mb-6">
