@@ -88,20 +88,11 @@ const Home = () => {
               <AnimatedElement className="relative">
                 <div className="relative w-96 h-96 mx-auto">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-yellow-300 rounded-full animate-pulse"></div>
-                  <div className="absolute inset-2 rounded-full overflow-hidden">
+                  <div className="absolute inset-2 rounded-full overflow-hidden z-10 shadow-xl border-4 border-white">
                     <picture>
-  <source
-    type="image/webp"
-    srcSet="/profile-384.webp 384w, /profile-768.webp 768w"
-    sizes="(max-width: 768px) 384px, 768px"
-  />
-  <source
-    type="image/jpeg"
-    srcSet="/profile-384.jpg 384w, /profile-768.jpg 768w"
-    sizes="(max-width: 768px) 384px, 768px"
-  />
+  <source type="image/webp" srcSet="/profile.webp" />
   <img
-    src="/profile-384.jpg"
+    src="/profile.jpg"
     alt="Portrait of Immanuel N. Dhliso, DevOps Engineer"
     className="w-full h-full object-cover"
     style={{ clipPath: 'circle(50% at center)' }}

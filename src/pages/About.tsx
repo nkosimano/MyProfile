@@ -1,9 +1,9 @@
-
-import AnimatedElement from '../components/AnimatedElement';
+import AnimatedElement from '../components/AnimatedElement'; // Assuming this component exists and works
 import { Code, Cloud, Database, GitBranch, Download, Mail, FileText } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Assuming you are using react-router-dom for navigation
 
 const About = () => {
+  // Data for the expertise section
   const expertise = [
     {
       title: 'Cloud Architecture',
@@ -27,9 +27,14 @@ const About = () => {
     }
   ];
 
+  // IMPORTANT: Replace this with the actual path to your tranquil sky blue view image.
+  // For example, if your image is in `public/images/sky.jpg`, this should be `/images/sky.jpg`
+  const skyBlueImageUrl = '/img/tranquil-sky-blue-view.jpg'; 
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 py-20 px-4">
+    // Main container for the About page
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 py-20 px-4 font-sans"> {/* Added font-sans as a default */}
+      
       {/* Bio Section */}
       <section className="max-w-7xl mx-auto mb-20">
         <AnimatedElement className="text-center mb-16">
@@ -44,108 +49,110 @@ const About = () => {
           </div>
         </AnimatedElement>
 
-        {/* Areas of Expertise */}
+        {/* Areas of Expertise Section */}
         <AnimatedElement delay={200} className="mt-20">
           <h2 className="text-3xl font-bold text-white text-center mb-12">Areas of Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {expertise.map((area) => (
-              <div key={area.title} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+              <div 
+                key={area.title} 
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 transform hover:scale-105 transition-all duration-300 shadow-lg" // Added shadow-lg
+              >
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-orange-500/10 mb-4 mx-auto">
                   {area.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-white text-center mb-2">{area.title}</h3>
-                <p className="text-gray-300 text-center">{area.description}</p>
+                <p className="text-gray-300 text-center text-sm leading-relaxed">{area.description}</p> {/* Adjusted text size and leading */}
               </div>
             ))}
           </div>
         </AnimatedElement>
 
-        {/* My DevOps/Freelancing Approach */}
+        {/* My DevOps/Freelancing Approach Section */}
         <AnimatedElement delay={300} className="mt-20">
           <h2 className="text-3xl font-bold text-white text-center mb-12">My DevOps/Freelancing Approach</h2>
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8">
-            <p className="text-gray-300 text-lg leading-relaxed mb-8">
-              Results-driven DevOps Engineer with 10 years of comprehensive IT expertise, specializing in architecting, automating, and optimizing scalable infrastructures across diverse cloud platforms such as AWS, Azure, GCP, and Digital Ocean. Skilled in developing efficient CI/CD pipelines using GitHub Actions and Azure DevOps, and proficient in containerization with Docker and Kubernetes to accelerate deployment cycles and enhance system reliability. Adept at bridging development and operations, with a strong background in business logic design, database optimization, and end-user web application planning. Experienced in leading large-scale IT projects, including network and infrastructure migrations, and service desk analysis, providing a solid foundation in end-to-end IT operations and user-centric solutions.
-            </p>
+          
+          {/* Main container for this section, enabling the layered background effect */}
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl relative overflow-hidden shadow-xl"> {/* Added shadow-xl */}
+            
+            {/* Layer 1: Sky blue background image */}
+            <div
+              style={{ backgroundImage: `url(${skyBlueImageUrl})` }}
+              className="absolute inset-0 bg-cover bg-center blur-sm opacity-50" // Adjust blur (e.g., blur-md) and opacity (e.g., opacity-30, opacity-75) as needed
+              aria-hidden="true" // For accessibility, as it's decorative
+            ></div>
 
-            <div className="mt-8">
-              <h3 className="text-2xl font-semibold text-white mb-6">The Hiking Mindset</h3>
+            {/* Layer 2: Content, positioned above the background image */}
+            <div className="relative z-10 p-8 md:p-12"> {/* Added more padding for larger screens */}
               
-              <div className="flex flex-col md:flex-row gap-8 mb-2 items-start">
-                <div className="w-full md:w-1/3 flex items-start">
-                  <picture>
-  <source
-    type="image/webp"
-    srcSet="/profile-hiking-256.webp 256w, /profile-hiking-512.webp 512w"
-    sizes="(max-width: 768px) 256px, 512px"
-  />
-  <source
-    type="image/jpeg"
-    srcSet="/profile-hiking-256.jpg 256w, /profile-hiking-512.jpg 512w"
-    sizes="(max-width: 768px) 256px, 512px"
-  />
-  <img
-    src="/profile-hiking-256.jpg"
-    alt="Immanuel hiking in nature, symbolizing a strategic and resilient mindset"
-    className="w-full h-64 object-cover rounded-xl mt-0"
-    loading="lazy"
-    width="384"
-    height="256"
-  />
-</picture>
-                </div>
-                <div className="w-full md:w-2/3">
-                  <p className="text-gray-300 mb-6">
-                    Drawing parallels between hiking and DevOps practices helps illustrate my methodical 
-                    approach to technical challenges and project management. Each trait represents a key 
-                    aspect of how I navigate complex technical landscapes.
-                  </p>
-                </div>
-              </div>
+              <p className="text-gray-200 text-lg leading-relaxed mb-8"> {/* Slightly lighter text for better contrast on potentially varied background */}
+                Just as every successful hike requires careful preparation, adaptability, and resilience, my approach to DevOps and freelancing is rooted in strategic planning and continuous improvement. I map out each project like a trail, identifying potential challenges and plotting efficient routes to the summit. When obstacles arise, I adjust my strategy, leveraging new tools and techniques to keep moving forward. By embracing a hiker’s mindset—methodical, resourceful, and persistent—I ensure that every solution I deliver is robust, scalable, and tailored to help clients reach their goals, no matter how rugged the terrain.
+              </p>
 
-              <ul className="space-y-6 text-gray-300">
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mr-4">
-                    <Code className="w-6 h-6 text-orange-400" />
+              <div className="mt-10"> {/* Increased top margin */}
+                <h3 className="text-2xl font-semibold text-white mb-8">The Hiking Mindset</h3> {/* Increased bottom margin */}
+                
+                {/* Container for hiking picture and its accompanying text block */}
+                <div className="flex flex-col md:flex-row gap-1 md:gap-0 mb-6 items-center md:items-start"> {/* md:gap-0 ensures no space on medium screens */}
+                  
+                  {/* Image container - takes 1/4 width on medium screens and up */}
+                  <div className="w-full md:w-1/4 flex items-start mb-4 md:mb-0 md:mr-6"> {/* Added right margin for medium screens */}
+                    <picture>
+                      <source type="image/webp" srcSet="/profile-hiking.webp" /> {/* Ensure this path is correct */}
+                      <img
+                        src="/profile-hiking.jpg"
+                        alt="Immanuel hiking in nature, symbolizing a strategic and resilient mindset"
+                        className="w-full h-80 object-cover rounded-xl shadow-lg" // Added shadow
+                        loading="lazy"
+                        width="512" // Intrinsic width, helps with layout shifts
+                        height="320" // Intrinsic height
+                      />
+                    </picture>
                   </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-white mb-2">Strategic Planning</h4>
-                    <p>Just as a hiker meticulously plans their route, assessing terrain and resources, I approach projects by carefully architecting solutions and defining strategic roadmaps to ensure efficient and predictable delivery.</p>
+                  
+                  {/* Text block next to the image - takes 3/4 width on medium screens and up */}
+                  <div className="w-full md:w-3/4 flex items-center"> 
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-md"> {/* Adjusted padding and added shadow */}
+                      <p className="text-gray-100 mb-0 text-base md:text-lg leading-relaxed"> {/* Added leading-relaxed */}
+                        Drawing parallels between hiking and DevOps practices helps illustrate my methodical approach to technical challenges and project management. Each trait represents a key aspect of how I navigate complex technical landscapes.
+                      </p>
+                    </div>
                   </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mr-4">
-                    <GitBranch className="w-6 h-6 text-orange-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-white mb-2">Resilient Navigation</h4>
-                    <p>Unexpected challenges are part of any journey. My mindset involves building resilient systems and applying methodical problem-solving skills to navigate obstacles effectively and maintain operational stability.</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mr-4">
-                    <Cloud className="w-6 h-6 text-orange-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-white mb-2">Adaptive Progression</h4>
-                    <p>Successful journeys require adapting to changing conditions. I embrace new technologies and methodologies, continuously optimizing processes and adjusting strategies to achieve peak performance and reach project goals.</p>
-                  </div>
-                </li>
-              </ul>
+                </div>
+
+                {/* List of principles (Strategic Planning, Resilient Navigation, etc.) */}
+                <ul className="space-y-8 text-gray-200 mt-10"> {/* Increased spacing and top margin */}
+                  {[
+                    { icon: <Code className="w-6 h-6 text-orange-400" />, title: "Strategic Planning", text: "Just as a hiker meticulously plans their route, assessing terrain and resources, I approach projects by carefully architecting solutions and defining strategic roadmaps to ensure efficient and predictable delivery." },
+                    { icon: <GitBranch className="w-6 h-6 text-orange-400" />, title: "Resilient Navigation", text: "Unexpected challenges are part of any journey. My mindset involves building resilient systems and applying methodical problem-solving skills to navigate obstacles effectively and maintain operational stability." },
+                    { icon: <Cloud className="w-6 h-6 text-orange-400" />, title: "Adaptive Progression", text: "Successful journeys require adapting to changing conditions. I embrace new technologies and methodologies, continuously optimizing processes and adjusting strategies to achieve peak performance and reach project goals." }
+                  ].map(item => (
+                    <li key={item.title} className="flex items-start">
+                      <div className="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mr-4 shadow"> {/* Added shadow */}
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-semibold text-white mb-2">{item.title}</h4>
+                        <p className="leading-relaxed text-sm">{item.text}</p> {/* Adjusted text size */}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </AnimatedElement>
 
-        {/* Explore Further */}
+        {/* Explore Further Section */}
         <AnimatedElement delay={400} className="mt-20">
           <h2 className="text-3xl font-bold text-white text-center mb-6">Explore Further</h2>
-          <p className="text-gray-300 text-center mb-8">
+          <p className="text-gray-300 text-center mb-10 max-w-xl mx-auto"> {/* Increased bottom margin and max-width */}
             Discover more about my work, experience, and how we can collaborate on your next project.
           </p>
-          <div className="flex justify-center space-x-8 flex-wrap gap-4">
+          <div className="flex justify-center items-center space-x-6 md:space-x-8 flex-wrap gap-y-4"> {/* Added gap-y for wrapping */}
             <a 
-              href="/assets/disc-assessment.pdf" 
-              className="flex items-center gap-2 text-orange-400 hover:text-orange-300 font-semibold"
+              href="/assets/disc-assessment.pdf" // Ensure this path is correct
+              className="flex items-center gap-2 text-orange-400 hover:text-orange-300 font-semibold transition-colors duration-300 py-2 px-4 rounded-lg hover:bg-white/10"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -153,15 +160,18 @@ const About = () => {
               D.I.S.C.
             </a>
             <a 
-              href="/files/Immanuel_Dhliso_DevOps_Resume.pdf" 
-              className="flex items-center gap-2 text-orange-400 hover:text-orange-300 font-semibold"
+              href="/assets/Resume.pdf" // Ensure this path is correct
+              className="flex items-center gap-2 text-orange-400 hover:text-orange-300 font-semibold transition-colors duration-300 py-2 px-4 rounded-lg hover:bg-white/10"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Download className="w-5 h-5" />
               Download Resume
             </a>
-            <Link to="/contact" className="flex items-center gap-2 text-orange-400 hover:text-orange-300 font-semibold">
+            <Link 
+              to="/contact" 
+              className="flex items-center gap-2 text-orange-400 hover:text-orange-300 font-semibold transition-colors duration-300 py-2 px-4 rounded-lg hover:bg-white/10"
+            >
               <Mail className="w-5 h-5" />
               Contact Me
             </Link>
