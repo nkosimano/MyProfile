@@ -91,7 +91,7 @@ const About = () => {
             <div className="relative z-10 p-8 md:p-12 bg-slate-900/30 rounded-xl"> 
               
               <p className="text-gray-200 text-lg leading-relaxed mb-8"> 
-                Just as every successful hike requires careful preparation, adaptability, and resilience, my approach to DevOps and freelancing is rooted in strategic planning and continuous improvement. I map out each project like a trail, identifying potential challenges and plotting efficient routes to the summit. When obstacles arise, I adjust my strategy, leveraging new tools and techniques to keep moving forward. By embracing a hiker’s mindset—methodical, resourceful, and persistent—I ensure that every solution I deliver is robust, scalable, and tailored to help clients reach their goals, no matter how rugged the terrain.
+                Just as every successful hike requires careful preparation, adaptability, and resilience, my approach to DevOps and freelancing is rooted in strategic planning and continuous improvement. I map out each project like a trail, identifying potential challenges and plotting efficient routes to the summit. When obstacles arise, I adjust my strategy, leveraging new tools and techniques to keep moving forward. By embracing a hiker's mindset—methodical, resourceful, and persistent—I ensure that every solution I deliver is robust, scalable, and tailored to help clients reach their goals, no matter how rugged the terrain.
               </p>
 
               <div className="mt-10"> 
@@ -101,14 +101,35 @@ const About = () => {
                   
                   <div className="w-full md:w-1/4 flex items-start mb-4 md:mb-0 md:mr-6"> 
                     <picture>
-                      <source type="image/webp" srcSet="/profile-hiking.webp" /> 
+                      <source 
+                        type="image/webp" 
+                        srcSet="/profile-hiking-320w.webp 320w,
+                                /profile-hiking-640w.webp 640w,
+                                /profile-hiking-960w.webp 960w,
+                                /profile-hiking-1280w.webp 1280w"
+                        sizes="(max-width: 768px) 100vw, 25vw"
+                      />
                       <img
-                        src="/profile-hiking.jpg"   
+                        src="/profile-hiking-640w.jpg"
+                        srcSet="/profile-hiking-320w.jpg 320w,
+                                /profile-hiking-640w.jpg 640w,
+                                /profile-hiking-960w.jpg 960w,
+                                /profile-hiking-1280w.jpg 1280w"
+                        sizes="(max-width: 768px) 100vw, 25vw"
                         alt="Immanuel hiking in nature, symbolizing a strategic and resilient mindset"
-                        className="w-full h-80 object-cover rounded-xl shadow-lg" 
+                        className="w-full h-80 object-cover rounded-xl shadow-lg transition-opacity duration-300"
                         loading="lazy"
-                        width="512" 
-                        height="320" 
+                        width="640" 
+                        height="480"
+                        style={{
+                          backgroundImage: 'url(/profile-hiking-placeholder.jpg)',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }}
+                        onLoad={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.backgroundImage = 'none';
+                        }}
                       />
                     </picture>
                   </div>
