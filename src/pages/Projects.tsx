@@ -73,6 +73,20 @@ const projects: Project[] = [
     links: {
       live: 'https://rtdynamicbc.co.za'
     }
+  },
+  {
+    title: 'Sensalearn',
+    description: 'Developed an innovative AI-powered language learning platform that leverages cutting-edge artificial intelligence to provide personalized and adaptive learning experiences. The platform features intelligent curriculum adaptation, real-time progress tracking, and interactive learning modules.',
+    image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2124&q=80',
+    technologies: ['React', 'TypeScript', 'AI/ML', 'Google Cloud', 'Firebase'],
+    outcomes: [
+      'Created an adaptive learning system powered by AI',
+      'Implemented personalized learning paths for each user',
+      'Enhanced language acquisition through interactive modules'
+    ],
+    links: {
+      live: 'https://sensa-ai-922211711157.europe-west1.run.app/'
+    }
   }
 ];
 
@@ -94,14 +108,6 @@ const testimonials = [
     quote: "Immanuel's expertise in setting up efficient file management systems for my legal cases and building a professional website with SEO optimization has been a game-changer for my practice. Highly recommended!",
     rating: 5,
     achievement: "Streamlined case file management, launched a professional legal website, and significantly improved online visibility through SEO."
-  },
-  {
-    name: "Rabelani Neluheni",
-    role: "Charted Accountant",
-    image: "/assets/rabelani.png", 
-    quote: "Immanuel's strategic approach to cloud cost optimization and financial system integration was invaluable. His solutions significantly improved our reporting accuracy and efficiency.",
-    rating: 5,
-    achievement: "Implemented a new cloud-based accounting system, reducing month-end closing time by 40%"
   },
   {
   name: "Jerome Strevens",
