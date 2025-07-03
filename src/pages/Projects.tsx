@@ -123,7 +123,7 @@ const projects: Project[] = [
       'Enhanced operational transparency across the supply chain'
     ],
     links: {
-      live: 'https://thfcscan.co.za'
+      live: 'https://www.thfcscan.co.za'
     }
   },
   {
