@@ -16,24 +16,24 @@ import {
 
 const skills = [
   {
-    category: 'Cloud Platforms',
+    category: 'Cloud & DevOps',
     icon: <Cloud className="w-6 h-6" />,
-    items: ['AWS (Lambda, EC2, S3, VPC)', 'Azure (DevOps, VMs, Blob Storage)', 'Google Cloud Platform', 'Digital Ocean']
+    items: ['AWS', 'Azure', 'GCP', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD Pipelines']
   },
   {
-    category: 'DevOps & CI/CD',
-    icon: <GitBranch className="w-6 h-6" />,
-    items: ['Docker', 'Kubernetes', 'GitHub Actions', 'Azure DevOps', 'Terraform', 'Ansible']
-  },
-  {
-    category: 'Programming',
+    category: 'Programming & Scripting',
     icon: <Code className="w-6 h-6" />,
-    items: ['Python', 'Bash', 'PowerShell', 'Go', 'SQL', 'PL/pgSQL']
+    items: ['Python', 'Go', 'TypeScript', 'React', 'PowerShell', 'Bash']
   },
   {
-    category: 'Databases',
+    category: 'Databases & Performance',
     icon: <Database className="w-6 h-6" />,
-    items: ['PostgreSQL', 'MySQL', 'NoSQL', 'Database Schema Design', 'Performance Tuning']
+    items: ['PostgreSQL', 'MySQL', 'NoSQL', 'Performance Tuning', 'Schema Design']
+  },
+  {
+    category: 'IT & Infrastructure',
+    icon: <GitBranch className="w-6 h-6" />,
+    items: ['Network Security', 'Infrastructure as Code (IaC)', 'Monitoring & Logging', 'Backup & Recovery']
   },
   {
     category: 'Operating Systems',
@@ -44,24 +44,33 @@ const skills = [
 
 const experiences = [
   {
-    title: 'DevOps Engineer',
-    company: 'Africa Tennis',
-    period: '2024 - Present',
-    description: 'Leading DevOps initiatives, implementing CI/CD pipelines, and managing multi-cloud infrastructure'
-  },
-  {
-    title: 'DevOps Engineer',
-    company: 'Charted Art',
-    period: '2024 - Present',
-    description: 'Driving DevOps strategy and infrastructure optimization on Google Cloud Platform'
+    title: 'Freelance DevOps & Cloud Consultant',
+    company: 'Self-Employed',
+    period: 'Jan 2024 - Present',
+    description: 'Delivered expert DevOps and cloud solutions for a diverse range of clients, focusing on automation, scalability, and security. Key projects include the Africa Tennis Platform, ReelApps, and the Landulani Physiotherapy website.'
   },
   {
     title: 'IT Project Lead',
     company: 'Cotton On Midrand',
     period: '2019 - 2023',
-    description: 'Led major IT infrastructure migrations and optimization projects'
+    description: 'Led major IT infrastructure migrations, including a full-scale transition from copper to fibre optic connectivity and from Fortinet to Cisco network hardware across 105 retail locations.'
+  },
+  {
+    title: 'End-User & Service Desk Analyst',
+    company: 'Cotton On Rosebank',
+    period: '2016 - 2019',
+    description: 'Provided end-user support, managed service desk operations, and built strong client relationships, achieving a 98% customer success rate.'
   }
 ];
+
+const certifications = [
+  'Azure Solutions Architect Expert (AZ-305)',
+  'Azure DevOps Engineer Expert (AZ-400)',
+  'Power BI Data Analyst Associate (PL-300)',
+  'Project Management Professional (PMP)',
+  'Workflow Specialist, Asana Academy'
+];
+
 
 const Home = () => {
   return (
@@ -70,38 +79,33 @@ const Home = () => {
       <section className="relative min-h-screen flex items-center justify-center px-4">
         <div className="absolute inset-0 overflow-hidden">
           <div
-  className="absolute inset-0 bg-center bg-cover opacity-20"
-  style={{
-    backgroundImage: `image-set(
-      url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=70') 1x,
-      url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1024&q=70') 1.5x,
-      url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=70') 2x,
-      url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2560&q=70') 3x
-    )`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover'
-  }}
-></div>
+            className="absolute inset-0 bg-center bg-cover opacity-20"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=70')`,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover'
+            }}
+          ></div>
         </div>
         <div className="relative container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
               <AnimatedElement className="relative">
-                <div className="relative w-96 h-96 mx-auto">
+                <div className="relative w-80 h-80 md:w-96 md:h-96 mx-auto">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-yellow-300 rounded-full animate-pulse"></div>
                   <div className="absolute inset-2 rounded-full overflow-hidden z-10 shadow-xl border-4 border-white">
                     <picture>
-  <source type="image/webp" srcSet="/profile.webp" />
-  <img
-    src="/profile.jpg"
-    alt="Portrait of Immanuel N. Dhliso, DevOps Engineer"
-    className="w-full h-full object-cover"
-    style={{ clipPath: 'circle(50% at center)' }}
-    loading="lazy"
-    width="384"
-    height="384"
-  />
-</picture>
+                      <source type="image/webp" srcSet="/profile.webp" />
+                      <img
+                        src="/profile.jpg"
+                        alt="Portrait of Immanuel N. Dhliso, DevOps Engineer"
+                        className="w-full h-full object-cover"
+                        style={{ clipPath: 'circle(50% at center)' }}
+                        loading="lazy"
+                        width="384"
+                        height="384"
+                      />
+                    </picture>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent to-purple-900/30 rounded-full"></div>
                 </div>
@@ -118,7 +122,7 @@ const Home = () => {
                 <p className="text-gray-400">
                   A results-driven DevOps Engineer with 10 years of comprehensive IT experience, specializing in architecting, automating, and optimizing robust and scalable infrastructures across diverse cloud environments.
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm">
                   <a
                     href="mailto:nkosinathi.dhliso@gmail.com"
                     className="flex items-center gap-2 text-gray-300 hover:text-orange-400"
@@ -234,14 +238,7 @@ const Home = () => {
         <AnimatedElement className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-16">Certifications</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              'Azure Solutions Architect Expert (AZ-305)',
-              'Azure DevOps Engineer Expert (AZ-400)',
-              'Power BI Data Analyst Associate (PL-300)',
-              'Azure Administrator Associate (AZ-104)',
-              'Azure Fundamentals (AZ-900)',
-              'Project Management Professional (PMP)'
-            ].map((cert, index) => (
+            {certifications.map((cert, index) => (
               <AnimatedElement
                 key={cert}
                 delay={index * 100}
