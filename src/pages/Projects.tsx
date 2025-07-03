@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import AnimatedElement from '../components/AnimatedElement'; // Assuming this component exists - verify this path and component integrity
 import { Github, Globe, Star, Quote } from 'lucide-react';
 
@@ -11,8 +12,33 @@ interface Project {
   links?: {
     live?: string;
     github?: string;
+    [key: string]: string | undefined; // This line allows for any additional string keys with string values
   };
 }
+
+// ExpandableContent component
+const ExpandableContent = ({ content, limit }: { content: string; limit: number }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  if (content.length <= limit) {
+    return <p className="text-gray-300 mb-6 text-base leading-relaxed">{content}</p>;
+  }
+
+  return (
+    <div>
+      <p className="text-gray-300 mb-6 text-base leading-relaxed">
+        {isExpanded ? content : `${content.substring(0, limit)}...`}
+      </p>
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="text-orange-400 hover:text-orange-300 transition-colors duration-300 font-semibold"
+      >
+        {isExpanded ? 'Show Less' : 'Read More'}
+      </button>
+    </div>
+  );
+};
+
 
 // Array of project data with updated images
 const projects: Project[] = [
@@ -75,6 +101,36 @@ const projects: Project[] = [
     }
   },
   {
+    "title": "ReelApps: The Future of Talent Acquisition",
+    "description": "ReelApps is a comprehensive, AI-powered ecosystem that transforms talent discovery and showcase. It integrates dynamic candidate profiles (ReelCV), advanced skill verification (ReelSkills), and intelligent recruitment tools (ReelHunter) with personality assessments (ReelPersona) and collaborative project showcases (ReelProjects). Our platform leverages cutting-edge AI and secure, accessible technology to provide personalized experiences, reduce bias, and facilitate authentic talent connections, ensuring skills and real capabilities speak louder than traditional resumes.",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070", // Updated image URL
+    "technologies": [
+      "React",
+      "TypeScript",
+      "AI/ML (Google Gemini API, Python FastAPI)",
+      "PostgreSQL (Supabase)",
+      "AWS Amplify (Deployment)",
+      "Zustand (State Management)",
+      "GitHub Actions (CI/CD)"
+    ],
+    "outcomes": [
+      "Transformed talent acquisition with an AI-driven ecosystem emphasizing verified skills and real-world projects",
+      "Implemented secure, modal-based authentication with Single Sign-On (SSO) and role-based access across all micro-frontends, enhancing user experience and security",
+      "Developed an adaptive learning and matching system powered by advanced AI analysis for job descriptions, candidate profiles, and project evidence",
+      "Ensured high performance, accessibility (WCAG AA compliant), and a consistent modern UI/UX across all applications",
+      "Enabled comprehensive profile management, skill verification through video demonstrations, and AI-driven personality insights for candidates",
+      "Provided recruiters with intelligent job analysis, smart candidate matching, and tools to reduce bias in the hiring process"
+    ],
+    "links": {
+      "live": "https://www.reelapps.co.za",
+      "reelcv": "https://reelcv.reelapps.co.za",
+      "reelhunter": "https://reelhunter.reelapps.co.za",
+      "reelpersona": "https://reelpersona.reelapps.co.za",
+      "reelskills": "https://reelskills.reelapps.co.za",
+      "reelprojects": "https://reelprojects.reelapps.co.za"
+    }
+  },
+  {
     title: 'Sensalearn',
     description: 'Developed an innovative AI-powered language learning platform that leverages cutting-edge artificial intelligence to provide personalized and adaptive learning experiences. The platform features intelligent curriculum adaptation, real-time progress tracking, and interactive learning modules.',
     image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2124&q=80',
@@ -87,16 +143,43 @@ const projects: Project[] = [
     links: {
       live: 'https://sensa-ai-922211711157.europe-west1.run.app/'
     }
+  },
+  {
+    title: 'IP Navigator',
+    description: 'A platform designed for end-users to assess the patentability of their ideas, providing an actual score based on innovative algorithms. This tool empowers innovators by offering clear insights into the intellectual property landscape.',
+    image: 'https://images.unsplash.com/photo-1520004434532-cd6680450530?q=80&w=2070', // Image related to intellectual property/innovation
+    technologies: ['React', 'Python (Flask/FastAPI)', 'AI/ML (for patentability scoring)', 'PostgreSQL'],
+    outcomes: [
+      'Provided users with actionable patentability scores for their ideas',
+      'Streamlined the initial intellectual property assessment process',
+      'Empowered innovators with data-driven insights into patent potential'
+    ],
+    links: {
+      live: 'https://ipnavigator.co.za'
+    }
+  },
+  {
+    title: 'THFC Scan Platform',
+    description: 'A robust platform developed to optimize The Health Food Company (THFC) supply chain processes and operations. It facilitates efficient scanning, tracking, and management of inventory, ensuring seamless logistics and improved operational transparency.',
+    image: 'https://images.unsplash.com/photo-1589987603644-ef48e9618f9d?q=80&w=2070', // Image related to supply chain/logistics
+    technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Barcode Scanning APIs'],
+    outcomes: [
+      'Optimized supply chain efficiency for THFC',
+      'Improved inventory accuracy and real-time tracking',
+      'Enhanced operational transparency across the supply chain'
+    ],
+    links: {
+      live: 'https://thfcscan.co.za'
+    }
   }
 ];
 
 // Array of testimonial data
 const testimonials = [
-  
   {
     name: "Keamogetsi Motsusi",
     role: "Digital Content creator & Events Manager",
-    image: "/assets/keamogetsi.png", 
+    image: "/assets/keamogetsi.png",
     quote: "Immanuel's ability to translate complex technical requirements into seamless user experiences for our event platforms was outstanding. His DevOps magic kept our digital campaigns running smoothly.",
     rating: 5,
     achievement: "Successfully launched three major virtual events with flawless technical execution, boosting audience engagement by 150%"
@@ -104,19 +187,19 @@ const testimonials = [
   {
     name: "Adv. Malebogo",
     role: "Advocate & Legal Consultant",
-    image: "/assets/malebogo.png", 
+    image: "/assets/malebogo.png",
     quote: "Immanuel's expertise in setting up efficient file management systems for my legal cases and building a professional website with SEO optimization has been a game-changer for my practice. Highly recommended!",
     rating: 5,
     achievement: "Streamlined case file management, launched a professional legal website, and significantly improved online visibility through SEO."
   },
   {
-  name: "Jerome Strevens",
-  role: "Tennis Fanatic",
-  image: "/assets/jerome.png", 
-  quote: "As a user of the Africa Tennis Platform, I'm amazed by its performance and reliability. Immanuel's work on the backend infrastructure ensures a fantastic experience for tennis enthusiasts like me.",
-  rating: 5,
-  achievement: "Contributed to a platform that now serves thousands of tennis players and fans daily with high availability and speed"
-}
+    name: "Jerome Strevens",
+    role: "Tennis Fanatic",
+    image: "/assets/jerome.png",
+    quote: "As a user of the Africa Tennis Platform, I'm amazed by its performance and reliability. Immanuel's work on the backend infrastructure ensures a fantastic experience for tennis enthusiasts like me.",
+    rating: 5,
+    achievement: "Contributed to a platform that now serves thousands of tennis players and fans daily with high availability and speed"
+  }
 ];
 
 // Main Projects component
@@ -140,7 +223,7 @@ const Projects = () => {
         </AnimatedElement>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-24"> {/* Increased gap and bottom margin */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-24"> {/* Changed lg:grid-cols-2 to lg:grid-cols-3 */}
           {projects.map((project, index) => (
             <AnimatedElement
               key={project.title}
@@ -163,9 +246,9 @@ const Projects = () => {
                     width="800" // Intrinsic width
                     height="450" // Intrinsic height (assuming 16:9 aspect ratio for placeholder)
                     onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.onerror = null; // Prevent infinite loop
-                        target.src = `https://placehold.co/800x450/334155/94a3b8?text=Image+Not+Found`; // Placeholder
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null; // Prevent infinite loop
+                      target.src = `https://placehold.co/800x450/334155/94a3b8?text=Image+Not+Found`; // Placeholder
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div> {/* Adjusted gradient */}
@@ -174,8 +257,8 @@ const Projects = () => {
                   </div>
                 </div>
                 <div className="p-6 md:p-8"> {/* Responsive padding */}
-                  <p className="text-gray-300 mb-6 text-base leading-relaxed">{project.description}</p> {/* Improved leading */}
-                  
+                  <ExpandableContent content={project.description} limit={150} />
+
                   <div className="mb-6">
                     <h4 className="text-white font-semibold mb-3 text-lg">Technologies Used:</h4> {/* Increased margin and text size */}
                     <div className="flex flex-wrap gap-2">
@@ -194,7 +277,7 @@ const Projects = () => {
                     <h4 className="text-white font-semibold mb-3 text-lg">Key Outcomes:</h4> {/* Increased margin and text size */}
                     <ul className="list-disc list-inside text-gray-300 space-y-1.5 pl-1"> {/* Adjusted spacing and padding */}
                       {project.outcomes.map((outcome) => (
-                        <li key={outcome} className="leading-relaxed">{outcome}</li> 
+                        <li key={outcome} className="leading-relaxed">{outcome}</li>
                       ))}
                     </ul>
                   </div>
@@ -223,6 +306,25 @@ const Projects = () => {
                           <span>Source Code</span>
                         </a>
                       )}
+                      {/* Dynamically render other links like reelcv, reelhunter, etc. */}
+                      {Object.entries(project.links).map(([key, value]) => {
+                        if (value && key !== 'live' && key !== 'github') {
+                          return (
+                            <a
+                              key={key}
+                              href={value}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors duration-300 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg"
+                            >
+                              {/* You might want to add different icons based on the key here */}
+                              <Globe size={20} />
+                              <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span> {/* Capitalize the key for display */}
+                            </a>
+                          );
+                        }
+                        return null;
+                      })}
                     </div>
                   )}
                 </div>
@@ -256,11 +358,10 @@ const Projects = () => {
                         target.onerror = null; // Prevent infinite loop
                         // Try original extension if webp fails or if it's already the original
                         if (target.src.endsWith('.webp')) {
-                            target.src = testimonial.image; // Fallback to original (png/jpg)
+                          target.src = testimonial.image; // Fallback to original (png/jpg)
                         } else {
-                            // Fallback to a placeholder if the original also fails
-                            // MODIFIED LINE: Added encodeURIComponent
-                            target.src = `https://placehold.co/80x80/475569/e2e8f0?text=${encodeURIComponent(testimonial.name.substring(0,1))}`;
+                          // Fallback to a placeholder if the original also fails
+                          target.src = `https://placehold.co/80x80/475569/e2e8f0?text=${encodeURIComponent(testimonial.name.substring(0, 1))}`;
                         }
                       }}
                     />
